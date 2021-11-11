@@ -32,6 +32,19 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures{
+        viewBinding true
+    }
+
+    flavorDimensions 'default'
+    productFlavors {
+        production {
+            dimension = 'default'
+            buildConfigField("String", "BASE_URL_BINAR_AUTH", "\"https://binar-gdd-cc8.herokuapp.com/api/v1/\"")
+            buildConfigField("String", "BASE_URL_COIN_GECKO", "\"https://api.coingecko.com/api/v3/\"")
+        }
+    }
 }
 
 dependencies {
