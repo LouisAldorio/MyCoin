@@ -38,7 +38,6 @@ class CoinListActivity : AppCompatActivity(), CoinListContract.View {
         initSwipeRefresh()
         initList()
 
-        binding.ivTest.load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUcutvpwc8DxZHRPm59gHmj0rVKeiZlMm3ww&usqp=CAU")
     }
 
     override fun showLoading(isLoading: Boolean) {
