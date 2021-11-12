@@ -8,4 +8,5 @@ interface CoinApiDataSource {
     suspend fun getCoinList() : List<Coin>
 
     suspend fun getCoinDetail(name : String) : CoinDetailResponse
+
 }

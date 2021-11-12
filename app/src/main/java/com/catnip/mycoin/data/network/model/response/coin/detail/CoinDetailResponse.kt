@@ -1,8 +1,5 @@
 package com.catnip.mycoin.data.network.model.response.coin.detail
 
-import com.catnip.mycoin.data.network.model.response.coin.Description
-import com.catnip.mycoin.data.network.model.response.coin.Image
-import com.catnip.mycoin.data.network.model.response.coin.MarketData
 import com.google.gson.annotations.SerializedName
 
 data class CoinDetailResponse(
