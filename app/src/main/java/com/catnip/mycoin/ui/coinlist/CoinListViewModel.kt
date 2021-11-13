@@ -21,7 +21,7 @@ class CoinListViewModel @Inject constructor(private val repository: CoinListRepo
     override fun getCoinListLiveData(): LiveData<Resource<List<Coin>>> = coinListResponseLiveData
 
     override fun getCoinList() {
-        Log.i("API", "masok")
+
         coinListResponseLiveData.value = Resource.Loading()
         viewModelScope.launch(Dispatchers.IO) {
             try {

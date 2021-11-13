@@ -1,7 +1,9 @@
 package com.catnip.mycoin.ui.coinlist
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,6 +12,7 @@ import com.catnip.mycoin.R
 import com.catnip.mycoin.base.model.Resource
 import com.catnip.mycoin.data.network.model.response.coin.Coin
 import com.catnip.mycoin.databinding.ActivityCoinListBinding
+import com.catnip.mycoin.ui.coindetail.CoinDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -23,6 +26,7 @@ class CoinListActivity : AppCompatActivity(), CoinListContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         initView()
         observeViewModel()
         getData()
@@ -78,7 +82,11 @@ class CoinListActivity : AppCompatActivity(), CoinListContract.View {
 
     override fun initList() {
         adapter = CoinListAdapter {
-            //todo : navigate to detail , bringing coin id to get the detail from API
+
+            val intent = Intent(this, CoinDetailActivity::class.java)
+            intent.putExtra("CoinID", it.id)
+            intent.putExtra("CoinPrice", it.currentPrice.toString())
+            startActivity(intent)
         }
         binding.rvContent.apply {
             adapter = this@CoinListActivity.adapter
@@ -93,6 +101,15 @@ class CoinListActivity : AppCompatActivity(), CoinListContract.View {
             binding.srlContent.isRefreshing = false
             getData()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.home -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setData(data: List<Coin>?) {

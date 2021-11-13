@@ -9,7 +9,6 @@ import javax.inject.Inject
 class CoinListRepository @Inject constructor(private val dataSource : CoinApiDataSource) : CoinListContract.Repository {
 
     override suspend fun getCoinList(): List<Coin> {
-        Log.i("API", dataSource.getCoinList().toString())
         return dataSource.getCoinList()
     }
 }
