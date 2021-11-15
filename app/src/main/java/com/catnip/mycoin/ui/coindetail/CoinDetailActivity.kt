@@ -13,6 +13,11 @@ import com.catnip.mycoin.databinding.ActivityCoinListBinding
 import com.catnip.mycoin.ui.coinlist.CoinListViewModel
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
+import android.text.Html
+import android.view.MenuItem
 
 
 @AndroidEntryPoint
@@ -23,7 +28,6 @@ class CoinDetailActivity : AppCompatActivity(), CoinDetailContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        actionBar?.setDisplayHomeAsUpEnabled(true);
         initView()
         observeViewModel()
         getDetailData()
@@ -32,6 +36,21 @@ class CoinDetailActivity : AppCompatActivity(), CoinDetailContract.View {
     override fun initView() {
         binding = ActivityCoinDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun showLoading(isLoading: Boolean) {
@@ -85,11 +104,21 @@ class CoinDetailActivity : AppCompatActivity(), CoinDetailContract.View {
         binding.tvCoinPrice.text = getString(R.string.text_placeholder_coin_price, intent.getStringExtra("CoinPrice"))
         binding.tvCoinSymbol.text = data.symbol
         binding.btnLink.text = data.links?.homepage?.get(0) ?: ""
-        binding.tvDescriptions.text = data.description?.en ?: ""
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            binding.tvDescriptions.setText(Html.fromHtml(data.description?.en ?: "", Html.FROM_HTML_MODE_COMPACT));
+        } else {
+            binding.tvDescriptions.setText(Html.fromHtml(data.description?.en ?: ""));
+        }
+
+        binding.btnLink.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(data.links?.homepage?.get(0)))
+            startActivity(browserIntent)
+        }
 
 
         data.categories?.forEach {
-            var chip = layoutInflater.inflate(R.layout.item_chip_category, binding.cgGroups, false) as Chip
+            val chip = layoutInflater.inflate(R.layout.item_chip_category, binding.cgGroups, false) as Chip
             chip.text = (it)
             binding.cgGroups.addView(chip)
         }

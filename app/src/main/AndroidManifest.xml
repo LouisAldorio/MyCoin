@@ -15,6 +15,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".ui.coindetail.CoinDetailActivity"
+            android:parentActivityName=".ui.coinlist.CoinListActivity"
             android:exported="true" />
         <activity
             android:name=".ui.coinlist.CoinListActivity"
