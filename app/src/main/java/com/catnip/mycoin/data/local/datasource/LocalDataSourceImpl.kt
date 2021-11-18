@@ -9,4 +9,16 @@ class LocalDataSourceImpl @Inject constructor(private val sessionPreference: Ses
         return sessionPreference.authToken
     }
 
+    override fun setAuthToken(authToken: String?) {
+        sessionPreference.authToken = authToken
+    }
+
+    override fun isUserLoggedIn(): Boolean {
+        return  !sessionPreference.authToken.isNullOrEmpty()
+    }
+
+    override fun deleteSession() {
+        sessionPreference.deleteSession()
+    }
+
 }

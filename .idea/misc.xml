@@ -4,9 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Studi Independen Kampus Merdeka/Binar Academy Android Engineering/Platinum/MyCoin/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.20572916666666666" />
+        <entry key="..\:/Studi Independen Kampus Merdeka/Binar Academy Android Engineering/Platinum/MyCoin/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.346875" />
         <entry key="..\:/Studi Independen Kampus Merdeka/Binar Academy Android Engineering/Platinum/MyCoin/app/src/main/res/drawable/ic_launcher_background.xml" value="0.20572916666666666" />
+        <entry key="..\:/Studi Independen Kampus Merdeka/Binar Academy Android Engineering/Platinum/MyCoin/app/src/main/res/drawable/ic_round_email.xml" value="0.346875" />
+        <entry key="..\:/Studi Independen Kampus Merdeka/Binar Academy Android Engineering/Platinum/MyCoin/app/src/main/res/drawable/ic_round_lock.xml" value="0.346875" />
         <entry key="..\:/Studi Independen Kampus Merdeka/Binar Academy Android Engineering/Platinum/MyCoin/app/src/main/res/layout/activity_coin_detail.xml" value="0.19791666666666666" />
         <entry key="..\:/Studi Independen Kampus Merdeka/Binar Academy Android Engineering/Platinum/MyCoin/app/src/main/res/layout/activity_coin_list.xml" value="0.25" />
+        <entry key="..\:/Studi Independen Kampus Merdeka/Binar Academy Android Engineering/Platinum/MyCoin/app/src/main/res/layout/activity_login.xml" value="0.31666666666666665" />
+        <entry key="..\:/Studi Independen Kampus Merdeka/Binar Academy Android Engineering/Platinum/MyCoin/app/src/main/res/layout/activity_register.xml" value="0.3307291666666667" />
         <entry key="..\:/Studi Independen Kampus Merdeka/Binar Academy Android Engineering/Platinum/MyCoin/app/src/main/res/layout/item_coin.xml" value="0.33" />
         <entry key="..\:/Studi Independen Kampus Merdeka/Binar Academy Android Engineering/Platinum/MyCoin/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.20572916666666666" />
       </map>

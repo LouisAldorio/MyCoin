@@ -58,6 +58,7 @@
             android:textColor="@color/md_amber_800"
             app:layout_constraintTop_toTopOf="parent"
             android:text="$500000"
+            android:textAlignment="textEnd"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
 

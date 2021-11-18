@@ -1,5 +1,8 @@
 package com.catnip.mycoin.di
 
+import com.catnip.mycoin.data.local.SessionPreference
+import com.catnip.mycoin.data.local.datasource.LocalDataSource
+import com.catnip.mycoin.data.local.datasource.LocalDataSourceImpl
 import com.catnip.mycoin.data.network.datasource.auth.AuthApiDataSource
 import com.catnip.mycoin.data.network.datasource.auth.AuthApiDataSourceImpl
 import com.catnip.mycoin.data.network.datasource.coin.CoinApiDataSource
@@ -26,5 +29,11 @@ object DataSourceModule {
     @Provides
     fun provideCoinGeckoDataSource(coinGeckoApiServices: CoinApiService): CoinApiDataSource {
         return CoinApiDataSourceImpl(coinGeckoApiServices)
+    }
+
+    @Singleton
+    @Provides
+    fun provideLocalDataSource(sessionPreference: SessionPreference): LocalDataSource {
+        return LocalDataSourceImpl(sessionPreference)
     }
 }

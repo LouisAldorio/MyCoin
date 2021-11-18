@@ -14,9 +14,18 @@
         android:theme="@style/Theme.MyCoin"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.coindetail.CoinDetailActivity"
-            android:parentActivityName=".ui.coinlist.CoinListActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="true" />
+        <activity
+            android:name=".ui.register.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.splashscreen.SplashScreenActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.coindetail.CoinDetailActivity"
+            android:exported="true"
+            android:parentActivityName=".ui.coinlist.CoinListActivity" />
         <activity
             android:name=".ui.coinlist.CoinListActivity"
             android:exported="true">
