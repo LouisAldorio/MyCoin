@@ -3,6 +3,7 @@ package com.catnip.mycoin.ui.coinlist
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
@@ -10,9 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.catnip.mycoin.R
 import com.catnip.mycoin.base.model.Resource
+import com.catnip.mycoin.data.local.SessionPreference
 import com.catnip.mycoin.data.network.model.response.coin.Coin
 import com.catnip.mycoin.databinding.ActivityCoinListBinding
 import com.catnip.mycoin.ui.coindetail.CoinDetailActivity
+import com.catnip.mycoin.ui.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -41,7 +44,11 @@ class CoinListActivity : AppCompatActivity(), CoinListContract.View {
         setContentView(binding.root)
         initSwipeRefresh()
         initList()
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.option_menu,menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun showLoading(isLoading: Boolean) {
@@ -107,6 +114,12 @@ class CoinListActivity : AppCompatActivity(), CoinListContract.View {
         when(item.itemId) {
             R.id.home -> {
                 finish()
+            }
+            R.id.overflowMenu -> {
+                SessionPreference(this).deleteSession()
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)
