@@ -1,5 +1,6 @@
 package com.catnip.mycoin.ui.login
 
+import android.app.Dialog
 import androidx.lifecycle.LiveData
 import com.catnip.mycoin.base.model.Resource
 import com.catnip.mycoin.data.network.model.request.auth.AuthRequest
@@ -10,6 +11,12 @@ interface LoginContract {
     interface View {
         fun initView()
         fun initViewModel()
+        fun navigateToCoinList()
+        fun setOnClick()
+        fun saveSessionLogin(data: UserData)
+        fun showToast(isSuccess: Boolean, msg: String)
+        fun showLoading(dialog: Dialog, isLoading: Boolean)
+        fun checkFormValidation(): Boolean
     }
 
     interface ViewModel {

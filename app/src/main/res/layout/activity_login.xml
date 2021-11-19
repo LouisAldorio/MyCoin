@@ -53,57 +53,35 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.cardview.widget.CardView
+    <Button
         android:id="@+id/cv_button_auth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="347dp"
         android:layout_marginEnd="40dp"
+        android:text="Login"
         app:cardBackgroundColor="@color/md_purple_600"
         app:cardCornerRadius="10dp"
         app:hintTextColor="@color/md_purple_600"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_auth_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingTop="20dp"
-            android:paddingBottom="17dp"
-            android:text="LOGIN"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
+    <Button
         android:id="@+id/cv_button_register_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="40dp"
+        android:text="New Account"
         app:cardBackgroundColor="@color/md_purple_600"
         app:cardCornerRadius="10dp"
         app:hintTextColor="@color/md_purple_600"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cv_button_auth">
+        app:layout_constraintTop_toBottomOf="@id/cv_button_auth" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingTop="20dp"
-            android:paddingBottom="17dp"
-            android:text="New Account"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

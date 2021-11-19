@@ -13,27 +13,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCoin"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true" />
         <activity
             android:name=".ui.register.RegisterActivity"
+            android:parentActivityName=".ui.login.LoginActivity"
             android:exported="true" />
+
         <activity
             android:name=".ui.splashscreen.SplashScreenActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.coindetail.CoinDetailActivity"
-            android:exported="true"
-            android:parentActivityName=".ui.coinlist.CoinListActivity" />
-        <activity
-            android:name=".ui.coinlist.CoinListActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.coindetail.CoinDetailActivity"
+            android:exported="true"
+            android:parentActivityName=".ui.coinlist.CoinListActivity" />
+
+        <activity
+            android:name=".ui.coinlist.CoinListActivity"
+            android:exported="true">
+
         </activity>
     </application>
 

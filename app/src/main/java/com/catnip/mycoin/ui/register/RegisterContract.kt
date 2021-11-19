@@ -1,5 +1,6 @@
 package com.catnip.mycoin.ui.register
 
+import android.app.Dialog
 import androidx.lifecycle.LiveData
 import com.catnip.mycoin.base.model.Resource
 import com.catnip.mycoin.data.network.model.request.auth.AuthRequest
@@ -10,6 +11,10 @@ interface RegisterContract {
     interface View {
         fun initView()
         fun initViewModel()
+        fun setClickListener()
+        fun checkFormValidation(): Boolean
+        fun showLoading(dialog: Dialog, isLoading: Boolean)
+        fun showToast(isSuccess: Boolean, msg: String)
     }
 
     interface ViewModel {

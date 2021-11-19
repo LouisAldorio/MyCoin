@@ -77,4 +77,6 @@ dependencies {
     //hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+
+    implementation 'io.github.shashank02051997:FancyToast:2.0.1'
 }
